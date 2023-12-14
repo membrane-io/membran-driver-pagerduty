@@ -17,12 +17,69 @@
                 "type": "String"
               }
             ]
+          },
+          {
+            "name": "sendEvent",
+            "type": "Void",
+            "params": [
+              {
+                "name": "payload",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "links",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "images",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "event_action",
+                "type": "String"
+              },
+              {
+                "name": "dedup_key",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "client",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "client_url",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "routing_key",
+                "type": "String"
+              }
+            ]
           }
         ],
         "fields": [
           {
             "name": "incidents",
             "type": "IncidentCollection"
+          },
+          {
+            "name": "status",
+            "type": "String"
+          }
+        ],
+        "events": [
+          {
+            "name": "statusChanged",
+            "type": "Void",
+            "hints": {
+              "hidden": true
+            }
           }
         ]
       },
@@ -144,7 +201,7 @@
         "fields": [
           {
             "name": "id",
-            "type": "Json"
+            "type": "String"
           },
           {
             "name": "title",
@@ -264,6 +321,175 @@
           {
             "name": "html_url",
             "type": "String"
+          },
+          {
+            "name": "alerts",
+            "type": "AlertCollection"
+          }
+        ],
+        "actions": [
+          {
+            "name": "resolved",
+            "type": "Void",
+            "params": [
+              {
+                "name": "email",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "acknowledged",
+            "type": "Void",
+            "params": [
+              {
+                "name": "email",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "AlertCollection",
+        "events": [],
+        "fields": [
+          {
+            "name": "one",
+            "type": "Alert",
+            "params": [
+              {
+                "name": "alert_id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "type": "AlertPage",
+            "ofType": "AlertPage",
+            "params": [
+              {
+                "name": "limit",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "offset",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "total",
+                "type": "Boolean",
+                "optional": true
+              },
+              {
+                "name": "alert_key",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "include",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "sort_by",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "statuses",
+                "type": "Json",
+                "optional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "AlertPage",
+        "fields": [
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Alert"
+          },
+          {
+            "name": "next",
+            "type": "Ref",
+            "ofType": "AlertPage"
+          }
+        ]
+      },
+      {
+        "name": "Alert",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "summary",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "type",
+            "type": "String"
+          },
+          {
+            "name": "self",
+            "type": "String"
+          },
+          {
+            "name": "html_url",
+            "type": "String"
+          },
+          {
+            "name": "created_at",
+            "type": "String"
+          },
+          {
+            "name": "status",
+            "type": "String"
+          },
+          {
+            "name": "alert_key",
+            "type": "String"
+          },
+          {
+            "name": "suppressed",
+            "type": "Boolean"
+          },
+          {
+            "name": "severity",
+            "type": "String"
+          }
+        ],
+        "actions": [
+          {
+            "name": "triggered",
+            "type": "Void",
+            "params": [
+              {
+                "name": "email",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "resolved",
+            "type": "Void",
+            "params": [
+              {
+                "name": "email",
+                "type": "String"
+              }
+            ]
           }
         ]
       }
