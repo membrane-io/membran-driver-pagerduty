@@ -1,0 +1,275 @@
+{
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "actions": [
+          {
+            "name": "configure",
+            "type": "Void",
+            "params": [
+              {
+                "name": "apiKey",
+                "type": "String"
+              },
+              {
+                "name": "routingKey",
+                "type": "String"
+              }
+            ]
+          }
+        ],
+        "fields": [
+          {
+            "name": "incidents",
+            "type": "IncidentCollection"
+          }
+        ]
+      },
+      {
+        "name": "IncidentCollection",
+        "events": [],
+        "fields": [
+          {
+            "name": "one",
+            "type": "Incident",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "type": "IncidentPage",
+            "ofType": "IncidentPage",
+            "params": [
+              {
+                "name": "limit",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "offset",
+                "type": "Int",
+                "optional": true
+              },
+              {
+                "name": "total",
+                "type": "Boolean",
+                "optional": true
+              },
+              {
+                "name": "date_range",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "incident_key",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "include",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "service_ids",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "since",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "sort_by",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "statuses",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "team_ids",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "time_zone",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "until",
+                "type": "String",
+                "optional": true
+              },
+              {
+                "name": "urgencies",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "user_ids",
+                "type": "Json",
+                "optional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "IncidentPage",
+        "fields": [
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Incident"
+          },
+          {
+            "name": "next",
+            "type": "Ref",
+            "ofType": "IncidentPage"
+          }
+        ]
+      },
+      {
+        "name": "Incident",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Json"
+          },
+          {
+            "name": "title",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "description",
+            "type": "String"
+          },
+          {
+            "name": "incident_number",
+            "type": "Int"
+          },
+          {
+            "name": "created_at",
+            "type": "String"
+          },
+          {
+            "name": "updated_at",
+            "type": "String"
+          },
+          {
+            "name": "status",
+            "type": "String"
+          },
+          {
+            "name": "incident_key",
+            "type": "String"
+          },
+          {
+            "name": "service",
+            "type": "Json"
+          },
+          {
+            "name": "assignments",
+            "type": "Json"
+          },
+          {
+            "name": "assigned_via",
+            "type": "String"
+          },
+          {
+            "name": "last_status_change_at",
+            "type": "String"
+          },
+          {
+            "name": "resolved_at",
+            "type": "String"
+          },
+          {
+            "name": "first_trigger_log_entry",
+            "type": "Json"
+          },
+          {
+            "name": "alert_counts",
+            "type": "Json"
+          },
+          {
+            "name": "is_mergeable",
+            "type": "Boolean"
+          },
+          {
+            "name": "escalation_policy",
+            "type": "Json"
+          },
+          {
+            "name": "teams",
+            "type": "Json"
+          },
+          {
+            "name": "pending_actions",
+            "type": "Json"
+          },
+          {
+            "name": "acknowledgements",
+            "type": "Json"
+          },
+          {
+            "name": "basic_alert_grouping",
+            "type": "String"
+          },
+          {
+            "name": "alert_grouping",
+            "type": "String"
+          },
+          {
+            "name": "last_status_change_by",
+            "type": "Json"
+          },
+          {
+            "name": "priority",
+            "type": "String"
+          },
+          {
+            "name": "resolve_reason",
+            "type": "String"
+          },
+          {
+            "name": "urgency",
+            "type": "String"
+          },
+          {
+            "name": "type",
+            "type": "String"
+          },
+          {
+            "name": "summary",
+            "type": "String"
+          },
+          {
+            "name": "self",
+            "type": "String"
+          },
+          {
+            "name": "html_url",
+            "type": "String"
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "http": "http:"
+  }
+}
