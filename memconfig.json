@@ -187,14 +187,17 @@
           {
             "name": "items",
             "type": "List",
-            "ofType": "Incident"
+            "ofType": "Incident",
+            "description": "List of incidents in the current page"
           },
           {
             "name": "next",
             "type": "Ref",
-            "ofType": "IncidentPage"
+            "ofType": "IncidentPage",
+            "description": "Reference to the next page of incidents"
           }
-        ]
+        ],
+        "description": "A collection of incidents with pagination support"
       },
       {
         "name": "Incident",
@@ -360,9 +363,11 @@
             "params": [
               {
                 "name": "alert_id",
-                "type": "String"
+                "type": "String",
+                "description": "ID of the alert"
               }
-            ]
+            ],
+            "description": "Single alert"
           },
           {
             "name": "page",
@@ -372,41 +377,50 @@
               {
                 "name": "limit",
                 "type": "Int",
-                "optional": true
+                "optional": true,
+                "description": "The maximum number of alerts to retrieve"
               },
               {
                 "name": "offset",
                 "type": "Int",
-                "optional": true
+                "optional": true,
+                "description": "The offset for retrieving alerts"
               },
               {
                 "name": "total",
                 "type": "Boolean",
-                "optional": true
+                "optional": true,
+                "description": "Flag to indicate whether to include the total count of alerts"
               },
               {
                 "name": "alert_key",
                 "type": "String",
-                "optional": true
+                "optional": true,
+                "description": "Key of the alert to retrieve"
               },
               {
                 "name": "include",
                 "type": "Json",
-                "optional": true
+                "optional": true,
+                "description": "Additional information to include in the response"
               },
               {
                 "name": "sort_by",
                 "type": "String",
-                "optional": true
+                "optional": true,
+                "description": "Field to sort the alerts by"
               },
               {
                 "name": "statuses",
                 "type": "Json",
-                "optional": true
+                "optional": true,
+                "description": "Filter alerts by their statuses"
               }
-            ]
+            ],
+            "description": "Page of alerts"
           }
-        ]
+        ],
+        "description": "Collection of alerts"
       },
       {
         "name": "AlertPage",
@@ -421,53 +435,64 @@
             "type": "Ref",
             "ofType": "AlertPage"
           }
-        ]
+        ],
+        "description": "A collection of alerts with pagination support"
       },
       {
         "name": "Alert",
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "Identifier of the alert"
           },
           {
             "name": "summary",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "Summary of the alert"
           },
           {
             "name": "type",
-            "type": "String"
+            "type": "String",
+            "description": "Type of the alert"
           },
           {
             "name": "self",
-            "type": "String"
+            "type": "String",
+            "description": "URL of the alert"
           },
           {
             "name": "html_url",
-            "type": "String"
+            "type": "String",
+            "description": "HTML URL of the alert"
           },
           {
             "name": "created_at",
-            "type": "String"
+            "type": "String",
+            "description": "Timestamp of when the alert was created"
           },
           {
             "name": "status",
-            "type": "String"
+            "type": "String",
+            "description": "Status of the alert"
           },
           {
             "name": "alert_key",
-            "type": "String"
+            "type": "String",
+            "description": "Key of the alert"
           },
           {
             "name": "suppressed",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates if the alert is suppressed"
           },
           {
             "name": "severity",
-            "type": "String"
+            "type": "String",
+            "description": "Severity level of the alert"
           }
         ],
         "actions": [
@@ -477,9 +502,11 @@
             "params": [
               {
                 "name": "email",
-                "type": "String"
+                "type": "String",
+                "description": "Email to trigger the alert"
               }
-            ]
+            ],
+            "description": "Trigger the alert with the specified email"
           },
           {
             "name": "resolved",
@@ -487,11 +514,14 @@
             "params": [
               {
                 "name": "email",
-                "type": "String"
+                "type": "String",
+                "description": "Email to resolve the alert"
               }
-            ]
+            ],
+            "description": "Resolve the alert with the specified email"
           }
-        ]
+        ],
+        "description": "Collection of alerts in PagerDuty"
       }
     ]
   },
