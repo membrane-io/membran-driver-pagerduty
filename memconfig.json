@@ -3,6 +3,7 @@
     "types": [
       {
         "name": "Root",
+        "description": "PagerDuty Driver"
         "actions": [
           {
             "name": "configure",
