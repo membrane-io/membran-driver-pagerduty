@@ -16,7 +16,8 @@
                 "name": "routingKey",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Configures the PagerDuty driver with the provided API key and routing key"
           },
           {
             "name": "sendEvent",
@@ -60,7 +61,8 @@
                 "name": "routing_key",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Sends an event to PagerDuty with the specified payload, links, images, event action, and routing key"
           }
         ],
         "fields": [
