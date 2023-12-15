@@ -97,7 +97,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Represents a single PagerDuty incident by ID"
           },
           {
             "name": "page",
@@ -179,9 +180,11 @@
                 "type": "Json",
                 "optional": true
               }
-            ]
+            ],
+            "description": "Represents a page of PagerDuty incidents"
           }
-        ]
+        ],
+        "description": "Collection of PagerDuty incidents"
       },
       {
         "name": "IncidentPage",
@@ -206,130 +209,161 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "Unique identifier of the incident"
           },
           {
             "name": "title",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "Title of the incident"
           },
           {
             "name": "description",
-            "type": "String"
+            "type": "String",
+            "description": "Description of the incident"
           },
           {
             "name": "incident_number",
-            "type": "Int"
+            "type": "Int",
+            "description": "Numeric identifier of the incident"
           },
           {
             "name": "created_at",
-            "type": "String"
+            "type": "String",
+            "description": "Timestamp of when the incident was created"
           },
           {
             "name": "updated_at",
-            "type": "String"
+            "type": "String",
+            "description": "Timestamp of when the incident was last updated"
           },
           {
             "name": "status",
-            "type": "String"
+            "type": "String",
+            "description": "Current status of the incident"
           },
           {
             "name": "incident_key",
-            "type": "String"
+            "type": "String",
+            "description": "Key associated with the incident for deduplication"
           },
           {
             "name": "service",
-            "type": "Json"
+            "type": "Json",
+            "description": "Details of the service associated with the incident"
           },
           {
             "name": "assignments",
-            "type": "Json"
+            "type": "Json",
+            "description": "Assignments related to the incident"
           },
           {
             "name": "assigned_via",
-            "type": "String"
+            "type": "String",
+            "description": "Method through which the incident was assigned"
           },
           {
             "name": "last_status_change_at",
-            "type": "String"
+            "type": "String",
+            "description": "Timestamp of the last status change for the incident"
           },
           {
             "name": "resolved_at",
-            "type": "String"
+            "type": "String",
+            "description": "Timestamp of when the incident was resolved, if applicable"
           },
           {
             "name": "first_trigger_log_entry",
-            "type": "Json"
+            "type": "Json",
+            "description": "First log entry that triggered the incident"
           },
           {
             "name": "alert_counts",
-            "type": "Json"
+            "type": "Json",
+            "description": "Counts of alerts associated with the incident"
           },
           {
             "name": "is_mergeable",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicator of whether the incident is mergeable with others"
           },
           {
             "name": "escalation_policy",
-            "type": "Json"
+            "type": "Json",
+            "description": "Details of the escalation policy associated with the incident"
           },
           {
             "name": "teams",
-            "type": "Json"
+            "type": "Json",
+            "description": "Teams associated with the incident"
           },
           {
             "name": "pending_actions",
-            "type": "Json"
+            "type": "Json",
+            "description": "Actions pending for the incident"
           },
           {
             "name": "acknowledgements",
-            "type": "Json"
+            "type": "Json",
+            "description": "Acknowledgements related to the incident"
           },
           {
             "name": "basic_alert_grouping",
-            "type": "String"
+            "type": "String",
+            "description": "Basic grouping of alerts related to the incident"
           },
           {
             "name": "alert_grouping",
-            "type": "String"
+            "type": "String",
+            "description": "Grouping of alerts related to the incident"
           },
           {
             "name": "last_status_change_by",
-            "type": "Json"
+            "type": "Json",
+            "description": "Details of the user who last changed the status of the incident"
           },
           {
             "name": "priority",
-            "type": "String"
+            "type": "String",
+            "description": "Priority level of the incident"
           },
           {
             "name": "resolve_reason",
-            "type": "String"
+            "type": "String",
+            "description": "Reason for resolving the incident, if applicable"
           },
           {
             "name": "urgency",
-            "type": "String"
+            "type": "String",
+            "description": "Urgency level of the incident"
           },
           {
             "name": "type",
-            "type": "String"
+            "type": "String",
+            "description": "Type of the incident"
           },
           {
             "name": "summary",
-            "type": "String"
+            "type": "String",
+            "description": "Summary of the incident"
           },
           {
             "name": "self",
-            "type": "String"
+            "type": "String",
+            "description": "URL of the incident resource"
           },
           {
             "name": "html_url",
-            "type": "String"
+            "type": "String",
+            "description": "URL of the incident resource in HTML format"
           },
           {
             "name": "alerts",
-            "type": "AlertCollection"
+            "type": "AlertCollection",
+            "description": "Collection of alerts associated with the incident"
           }
         ],
         "actions": [
@@ -341,7 +375,8 @@
                 "name": "email",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Action to mark the incident as resolved"
           },
           {
             "name": "acknowledged",
@@ -351,9 +386,11 @@
                 "name": "email",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Action to acknowledge the incident"
           }
-        ]
+        ],
+        "description": "Type representing an incident in PagerDuty"
       },
       {
         "name": "AlertCollection",
