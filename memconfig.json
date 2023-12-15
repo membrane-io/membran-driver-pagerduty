@@ -68,11 +68,13 @@
         "fields": [
           {
             "name": "incidents",
-            "type": "IncidentCollection"
+            "type": "IncidentCollection",
+            "description": "Collection of PagerDuty incidents"
           },
           {
             "name": "status",
-            "type": "String"
+            "type": "String",
+            "description": "The status of the PagerDuty driver"
           }
         ],
         "events": [
@@ -81,7 +83,8 @@
             "type": "Void",
             "hints": {
               "hidden": true
-            }
+            },
+            "description": "Event triggered when the status of the PagerDuty driver changes"
           }
         ]
       },
